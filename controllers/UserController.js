@@ -61,6 +61,7 @@ const SignInUser = async (req, res, next) => {
 }
 
 const GetAllUsers = async (req, res) => {
+    console.log('reaching controller; ');
     try {
         const users = await User.findAll()
         res.send(users)

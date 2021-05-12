@@ -37,15 +37,15 @@ const DeleteUser = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const id = {id: user.data.id}
-        console.log('id: ', id);
+        const id = { id: user.data.id }
+        // console.log('id: ', id);
         try {
             const deleteUser = await __DeleteUser(id);
-            console.log('afater delete: ', deleteUser);
+            // console.log('afater delete: ', deleteUser);
             alert(deleteUser.message);
             props.history.push('/main');
-        } catch(error) {
-            throw error 
+        } catch (error) {
+            throw error
         }
     }
 
@@ -94,33 +94,6 @@ const DeleteUser = (props) => {
 
             ) : (<p></p>)
             }
-            {/* <form className={classes.root} autoComplete="off" onSubmit={handleSubmit}>
-                {console.log('this is the state: ', { firstName, lastName, username, state, city })}
-                <div>
-                    <TextField id="firstName" label="First Name" onChange={handleChange} />
-                    <TextField id="lastName" label="Last Name" onChange={handleChange} />
-                    <TextField id="username" label="Username" onChange={handleChange} />
-                    <InputLabel id="demo-simple-select-label">State</InputLabel>
-                    <Select
-                        id="state-select"
-                        value={state}
-                        onChange={handleChange}
-                    >
-                        {states.map((stateName) => (
-                            <MenuItem key={stateName.value} value={stateName.value}>
-                                {stateName.label}
-                            </MenuItem>
-                        ))}
-                    </Select>
-                    <TextField id="city" label="city" onChange={handleChange} /> */}
-            {/* <TextField id="standard-basic" label="First Name" />
-                <TextField id="standard-basic" label="First Name" />
-                <TextField id="standard-basic" label="First Name" />
-                <TextField id="standard-basic" label="" */}
-            {/* </div>
-                <Button type="submit" className={classes.submit}>Submit</Button>
-            </form> */}
-
         </div>
     )
 }

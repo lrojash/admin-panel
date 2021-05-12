@@ -52,6 +52,17 @@ export const __DeleteUser = async (id) => {
     }
 }
 
+export const __GetAllUsers = async () => {
+    // console.log('reached services: ');
+    try {
+        const res = await ApiClient.get('/user/allusers');
+        // console.log('after request:  ', res.data);
+        return res.data;
+    } catch (error) {
+        throw error
+    }
+}
+
 export const __Logout = async () => {
     localStorage.removeItem('token');
 }
