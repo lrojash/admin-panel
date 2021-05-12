@@ -95,6 +95,7 @@ const AddUser = (props) => {
         // console.log("current state: ", state)
         try {
             await __RegisterUser(formData);
+            alert(`Added User ${firstName} ${lastName}.`)
             props.history.push('/main');
         } catch (error) {
             throw error

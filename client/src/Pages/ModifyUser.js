@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import SearchBar from "material-ui-search-bar";
-import { __DeleteUser, __SearchUser } from '../services/UserServices';
-
+import { __SearchUser } from '../services/UserServices';
+import ModifyModal from '../components/ModifyModal'
 
 // services
-import { __RegisterUser } from '../services/UserServices'
+import { __ModifyUser } from '../services/UserServices'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,20 +34,6 @@ const ModifyUser = (props) => {
 
     const [searched, setSearched] = useState('');
     const [user, setUser] = useState('');
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const id = { id: user.data.id }
-        // console.log('id: ', id);
-        try {
-            const deleteUser = await __DeleteUser(id);
-            // console.log('afater delete: ', deleteUser);
-            alert(deleteUser.message);
-            props.history.push('/main');
-        } catch (error) {
-            throw error
-        }
-    }
 
     const requestSearch = (searchValue) => {
         setSearched(searchValue);
@@ -84,14 +70,14 @@ const ModifyUser = (props) => {
             />
             {console.log('searched user: ', user)}
             {user ? (
-                <form className={classes.userInfo} onSubmit={handleSubmit}>
-                    <h1>Name: {user.data.firstName} {user.data.lastName}</h1>
-                    <h1>Id: {user.data.id}</h1>
-                    <h1>Role: {user.data.role}</h1>
-                    <h1>Location: {user.data.city}, {user.data.state}</h1>
-                    <Button type="submit" className={classes.submit}>Modify</Button>
-                </form>
-
+                // <form className={classes.userInfo} onSubmit={handleSubmit}>
+                //     <h1>Name: {user.data.firstName} {user.data.lastName}</h1>
+                //     <h1>Id: {user.data.id}</h1>
+                //     <h1>Role: {user.data.role}</h1>
+                //     <h1>Location: {user.data.city}, {user.data.state}</h1>
+                //     <Button type="submit" className={classes.submit}>Modify</Button>
+                // </form>
+                <ModifyModal {...props} user={user}/>
             ) : (<p></p>)
             }
         </div>

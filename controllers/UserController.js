@@ -87,6 +87,8 @@ const DeleteUser = async (req, res) => {
 }
 
 const UpdateUser = async (req, res) => {
+
+    console.log('this is the request: ', req.body.username);
     try {
         let user = await User.findOne({
             where: {
@@ -99,8 +101,9 @@ const UpdateUser = async (req, res) => {
                     id: user.id
                 },
             })
+            res.send({message: `User ${req.body.username} Has Been Modified `});
         }
-        res.send(updateUser);
+        res.send({message: `There has an issues modifying this user`})
     } catch (error) {
         throw error;
     }

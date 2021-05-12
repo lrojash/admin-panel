@@ -63,6 +63,15 @@ export const __GetAllUsers = async () => {
     }
 }
 
+export const __ModifyUser = async (formData) => {
+    try {
+        const res = await ApiClient.put('/user/modifyuser', formData);
+        return res.data
+    } catch (error) {
+        throw error;
+    }
+}
+
 export const __Logout = async () => {
     localStorage.removeItem('token');
 }
