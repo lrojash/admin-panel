@@ -1,0 +1,20 @@
+{
+  "development": {
+    "database": "carna_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "define": {
+      "underscored": true
+    }
+  },
+  "test": {
+    "database": "carna_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "database": "carna_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
