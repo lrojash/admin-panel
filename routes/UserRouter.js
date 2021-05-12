@@ -14,8 +14,10 @@ Router.post('/login', UserController.SignInUser, createToken);
 Router.post('/register', UserController.CreateUser);
 // route to get all users in db
 Router.get('/allusers', UserController.GetAllUsers);
+// find a user
+Router.put('/findUser', UserController.FindUser);
 // Route to delete a user
-Router.delete('/removeUser', UserController.DeleteUser);
+Router.delete('/deleteUser', UserController.DeleteUser);
 // Route to update user,
 Router.put('/modifyUser', UserController.UpdateUser);
 // route to check session

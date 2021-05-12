@@ -71,17 +71,15 @@ const GetAllUsers = async (req, res) => {
 
 const DeleteUser = async (req, res) => {
     try {
-        // console.log('params: ', req.body);
-        const { username, lastName } = req.body
-        // console.log(username, lastName);
-
+        console.log('params: ', req.body);
+        const { id } = req.body
+        console.log('id: ', id.id);
         await User.destroy({
             where: {
-                username: username,
-                lastName: lastName
+                id: id.id
             },
         })
-        res.send({ message: `Deleted User with username: ${username} and last name: ${lastName}` });
+        res.send({ message: `Deleted User with id: ${id.id}` });
     } catch (error) {
         throw error;
     }
@@ -94,16 +92,33 @@ const UpdateUser = async (req, res) => {
                 username: req.body.username
             }
         })
-        if(user) {
+        if (user) {
             let updateUser = await User.update(req.body, {
                 where: {
                     id: user.id
-                },  
+                },
             })
         }
         res.send(updateUser);
-    } catch(error) {
-        throw error; 
+    } catch (error) {
+        throw error;
+    }
+}
+
+const FindUser = async (req, res) => {
+    console.log('reaching controller: ', req);
+    try {
+        let user = await User.findOne({
+            where: {
+                username: req.body.username
+            },
+        })
+        if (user) {
+            return res.send(user);
+        }
+        return res.send(false);
+    } catch (error) {
+        throw error
     }
 }
 
@@ -126,4 +141,5 @@ module.exports = {
     GetAllUsers,
     DeleteUser,
     UpdateUser,
+    FindUser,
 }

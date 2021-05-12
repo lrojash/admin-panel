@@ -32,6 +32,26 @@ export const __CheckSession = async () => {
     }
 }
 
+export const __SearchUser = async (search) => {
+    // console.log('reaching services', search)
+    try {
+        const user = await ApiClient.put('/user/findUser', search);
+        return user
+    } catch (error) {
+        throw error
+    }
+}
+
+export const __DeleteUser = async (id) => {
+    // console.log('reached delete services: ', id);
+    try {
+        const res = await ApiClient.delete('/user/deleteUser', { data: { id } });
+        return res.data
+    } catch (error) {
+        throw error
+    }
+}
+
 export const __Logout = async () => {
     localStorage.removeItem('token');
 }
