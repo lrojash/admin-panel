@@ -44,7 +44,7 @@ const ModifyUser = (props) => {
         requestSearch(searched);
     }
     const submitSearch = async () => {
-        console.log('before sending: ', searched)
+        // console.log('before sending: ', searched)
         let data = { username: searched }
         try {
             const searchedUser = await __SearchUser(data);
@@ -70,13 +70,6 @@ const ModifyUser = (props) => {
             />
             {console.log('searched user: ', user)}
             {user ? (
-                // <form className={classes.userInfo} onSubmit={handleSubmit}>
-                //     <h1>Name: {user.data.firstName} {user.data.lastName}</h1>
-                //     <h1>Id: {user.data.id}</h1>
-                //     <h1>Role: {user.data.role}</h1>
-                //     <h1>Location: {user.data.city}, {user.data.state}</h1>
-                //     <Button type="submit" className={classes.submit}>Modify</Button>
-                // </form>
                 <ModifyModal {...props} user={user}/>
             ) : (<p></p>)
             }

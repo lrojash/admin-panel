@@ -38,7 +38,7 @@ const AssignGroups = () => {
     const handleChange = (e) => {
         e.preventDefault();
 
-        console.log('outside switch: ', console.log(e.target.value));
+        // console.log('outside switch: ', console.log(e.target.value));
         switch (e.target.id) {
             case "firstName":
                 setFirstName(e.target.value);

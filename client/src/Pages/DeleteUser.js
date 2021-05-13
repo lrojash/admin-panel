@@ -58,7 +58,7 @@ const DeleteUser = (props) => {
         requestSearch(searched);
     }
     const submitSearch = async () => {
-        console.log('before sending: ', searched)
+        // console.log('before sending: ', searched)
         let data = { username: searched }
         try {
             const searchedUser = await __SearchUser(data);

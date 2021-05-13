@@ -88,7 +88,7 @@ const ModifyForm = (props) => {
         let formData = { firstName, lastName, username, state, city, role };
         try {
             const res = await __ModifyUser(formData);
-            console.log('this is the current response from api: ', res);
+            // console.log('this is the current response from api: ', res);
             alert(res.message);
             props.history.push('/main');
         } catch (error) {
@@ -104,8 +104,6 @@ const ModifyForm = (props) => {
                 <TextField id="lastName" defaultValue={props.user.data.lastName} label="Last Name" onChange={handleChange} />
                 <TextField id="username" defaultValue={props.user.data.username} label="Username" onChange={handleChange} />
                 <TextField id="city" defaultValue={props.user.data.city} label="City" onChange={handleChange} />
-                {/* <TextField id="role" defaultValue={props.user.data.role} label="Role" onChange={handleChange} />
-                <TextField id="password" label="Password" onChange={handleChange} /> */}
                 <Select
                     id="state"
                     value={state}
