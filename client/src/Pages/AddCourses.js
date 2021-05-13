@@ -71,32 +71,9 @@ const AddCourses = () => {
     }
 
     return (
-        <form className={classes.root} autoComplete="off" onSubmit={handleSubmit}>
-            {console.log('this is the state: ', { firstName, lastName, username, state, city })}
-            <div>
-                <TextField id="firstName" label="First Name" onChange={handleChange} />
-                <TextField id="lastName" label="Last Name" onChange={handleChange} />
-                <TextField id="username" label="Username" onChange={handleChange} />
-                <InputLabel id="demo-simple-select-label">State</InputLabel>
-                <Select
-                    id="state-select"
-                    value={state}
-                    onChange={handleChange}
-                >
-                    {states.map((stateName) => (
-                        <MenuItem key={stateName.value} value={stateName.value}>
-                            {stateName.label}
-                        </MenuItem>
-                    ))}
-                </Select>
-                <TextField id="city" label="city" onChange={handleChange} />
-                {/* <TextField id="standard-basic" label="First Name" />
-                <TextField id="standard-basic" label="First Name" />
-                <TextField id="standard-basic" label="First Name" />
-                <TextField id="standard-basic" label="" */}
-            </div>
-            <Button type="submit" className={classes.submit}>Submit</Button>
-        </form>
+        <div>
+            <h1>Add Courses</h1>
+        </div>
     )
 }
 
