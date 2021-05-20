@@ -130,7 +130,7 @@ const Main = (props) => {
                         <MenuIcon />
                     </IconButton>
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                        Dashboard
+                        Admin Panel
                     </Typography>
                     <IconButton color="inherit">
                         <Badge color="secondary">
